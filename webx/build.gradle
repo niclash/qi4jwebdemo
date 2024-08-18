@@ -1,0 +1,5 @@
+
+dependencies {
+    implementation libraries.qi4j
+    implementation libraries.jersey
+}

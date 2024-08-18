@@ -1,0 +1,9 @@
+include 'app',
+        'bootstrap',
+        'crudbrowser',
+        'model',
+        'webview',
+        'rest',
+        'webx'
+
+rootProject.name = "qi4jwebdemo"

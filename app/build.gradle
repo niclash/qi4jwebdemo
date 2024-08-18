@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+dependencies {
+    implementation project(":bootstrap")
+    implementation project(":model")
+    implementation project(":rest")
+    implementation project(":webview")
+    implementation project(":webx")
+    implementation libraries.qi4j
+    implementation libraries.qi4j_runtime
+    implementation libraries.jersey
+
+}

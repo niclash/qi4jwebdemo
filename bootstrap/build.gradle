@@ -1,0 +1,10 @@
+
+dependencies {
+    implementation project(":model")
+    implementation project(":rest")
+    implementation project(":webview")
+    implementation project(":webx")
+    implementation libraries.qi4j
+    implementation libraries.qi4j_spi
+    implementation libraries.qi4j_runtime
+}

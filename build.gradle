@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "nebula.release" version "17.2.2"
+}
+
+rootProject.ext.onlyAll = true
+
+if (project.version == 'unspecified') {
+    project.version = System.properties.version ?: '0'
+}
+
+group 'org.hedhman.demo'
+apply from: 'dependencies.gradle'
+
+subprojects() {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+
+    defaultTasks 'assemble'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": "$rootProject.group.$project.name",
+                    "Implementation-Version": archiveVersion)
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation libraries.junit
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+

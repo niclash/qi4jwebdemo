@@ -1,0 +1,4 @@
+
+dependencies {
+    implementation libraries.qi4j
+}
